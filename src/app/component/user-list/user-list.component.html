@@ -1,6 +1,7 @@
 <div class="user-list-container">
   <h1>Lista de usuarios</h1>
-
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar usuarios..." />
+  
   <div *ngIf="errorMessage" class="error-message">
     {{ errorMessage }}
   </div>
@@ -17,5 +18,4 @@
     </li>
   </ul>
 
-  <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar usuarios..." />
 </div>

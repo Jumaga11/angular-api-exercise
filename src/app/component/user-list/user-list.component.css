@@ -1,24 +1,129 @@
+
+/* - - - - - - - - - - - - - - 
+- - - Contenedor principal - - 
+- - - - - - - - - - - - - - -*/
 .user-list-container {
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
   padding: 20px;
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fb;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.user-item {
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin: 10px 0;
-  padding: 15px;
+/* - - - - - - - - - - - - - -
+- - - - - - Título - - - - - -
+- - - - - - - - - - - - - - - */
+h1 {
+  text-align: center;
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
+/* - - - - - - - - - - - - - - -
+- - Mensajes de error y carga - -
+- - - - - - - - - - - - - - - -*/
 .error-message {
-  color: red;
+  color: #ff4d4d;
   font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .loading-message {
-  color: gray;
+  color: #888;
   font-style: italic;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* - - - - - - - - - - - - - - - - - 
+- Contenedor del campo de búsqueda -
+- - - - - - - - - - - - - - - - - - */
+.search-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: #007bff;
+}
+
+/* - - - - - - - - - - - - - - - - - 
+- - - Estilo de cada usuario - - - -
+- - - - - - - - - - - - - - - - - -*/
+.user-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 15px 0;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
+
+.user-item:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* - - - - - - - - - - - - - - - - - 
+- - Estilo de los nombres y texto - - 
+- - - - - - - - - - - - - - - - - -*/
+.user-item h2 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.user-item p {
+  color: #555;
+  font-size: 1rem;
+}
+
+.user-item a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.user-item a:hover {
+  text-decoration: underline;
+}
+
+/* - - - - - - - - - - - - - - - - 
+- - - - tablet y móviles - - - - -
+- - - - - - - - - - - - - - - - -*/
+@media (max-width: 768px) {
+  .user-list-container {
+    padding: 15px;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .user-item {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .user-item h2 {
+    font-size: 1.1rem;
+  }
 }
