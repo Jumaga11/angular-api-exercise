@@ -1,0 +1,21 @@
+<div class="user-list-container">
+  <h1>Lista de usuarios</h1>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!errorMessage && users.length === 0" class="loading-message">
+    Cargando usuarios...
+  </div>
+
+  <ul *ngIf="users.length > 0">
+    <li *ngFor="let user of filteredUsers" class="user-item">
+      <h2>{{ user.name }}</h2>
+      <p>Email: {{ user.email }}</p>
+      <p>Ciudad: {{ user.address.city }}</p>
+    </li>
+  </ul>
+
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar usuarios..." />
+</div>
