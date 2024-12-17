@@ -1,15 +1,14 @@
 
-/* - - - - - - - - - - - - - - 
-- - - Contenedor principal - - 
+/* - - - - - - - - - - - - - -
+/* - - - - - - - - - - - - - -
 - - - - - - - - - - - - - - -*/
 .user-list-container {
   max-width: 900px;
   margin: auto;
   padding: 20px;
   font-family: 'Arial', sans-serif;
-  background-color: #f4f7fb;
+  background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* - - - - - - - - - - - - - -
@@ -39,7 +38,57 @@ h1 {
   margin-bottom: 10px;
 }
 
-/* - - - - - - - - - - - - - - - - - 
+/* Estilo para el alert */
+.alert {
+  padding: 15px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+/* Estilo para el modal */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* - - - - - - - - - - - - - - - - -
 - Contenedor del campo de búsqueda -
 - - - - - - - - - - - - - - - - - - */
 .search-container {
@@ -62,16 +111,16 @@ input[type="text"]:focus {
   border-color: #007bff;
 }
 
-/* - - - - - - - - - - - - - - - - - 
+/* - - - - - - - - - - - - - - - - -
 - - - Estilo de cada usuario - - - -
 - - - - - - - - - - - - - - - - - -*/
 .user-item {
-  background: #fff;
-  border: 1px solid #ddd;
+  background: #e7f0db;
+  border: 1px solid #d8e4ce;
   border-radius: 10px;
   margin: 15px 0;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.3s;
 }
 
@@ -79,8 +128,14 @@ input[type="text"]:focus {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* - - - - - - - - - - - - - - - - - 
-- - Estilo de los nombres y texto - - 
+/* Estilo para la lista de usuarios */
+.user-list {
+  list-style-type: none; /* Elimina las viñetas */
+  padding: 0;
+}
+
+/* - - - - - - - - - - - - - - - - -
+- - Estilo de los nombres y texto - -
 - - - - - - - - - - - - - - - - - -*/
 .user-item h2 {
   font-size: 1.2rem;
@@ -102,7 +157,7 @@ input[type="text"]:focus {
   text-decoration: underline;
 }
 
-/* - - - - - - - - - - - - - - - - 
+/* - - - - - - - - - - - - - - - -
 - - - - tablet y móviles - - - - -
 - - - - - - - - - - - - - - - - -*/
 @media (max-width: 768px) {

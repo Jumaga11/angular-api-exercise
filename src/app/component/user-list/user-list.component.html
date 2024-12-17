@@ -1,21 +1,34 @@
 <div class="user-list-container">
   <h1>Lista de usuarios</h1>
-  <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar usuarios..." />
-  
-  <div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }}
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar usuarios..." /> <!-- Campo de entrada para buscar usuarios -->
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-warning">
+    {{ errorMessage }} <!-- Muestra el mensaje de error si existe -->
   </div>
 
   <div *ngIf="!errorMessage && users.length === 0" class="loading-message">
-    Cargando usuarios...
+    Cargando usuarios... <!-- Muestra un mensaje de carga si no hay usuarios y no hay error -->
   </div>
 
-  <ul *ngIf="users.length > 0">
+  <div *ngIf="!errorMessage && users.length > 0 && filteredUsers.length === 0" class="alert alert-warning">
+    Error, usuario no existe <!-- Muestra un mensaje de error si no hay coincidencias en la búsqueda -->
+  </div>
+
+  <ul class="user-list" *ngIf="filteredUsers.length > 0">
     <li *ngFor="let user of filteredUsers" class="user-item">
-      <h2>{{ user.name }}</h2>
-      <p>Email: {{ user.email }}</p>
-      <p>Ciudad: {{ user.address.city }}</p>
+      <h2>{{ user.name }}</h2> <!-- Muestra el nombre del usuario -->
+      <p>Email: {{ user.email }}</p> <!-- Muestra el email del usuario -->
+      <p>Ciudad: {{ user.address.city }}</p> <!-- Muestra la ciudad del usuario -->
     </li>
   </ul>
 
+  <!-- Modal de error -->
+  <div *ngIf="httpErrorMessage" class="modal">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <p>{{ httpErrorMessage }}</p>
+    </div>
+  </div>
 </div>
