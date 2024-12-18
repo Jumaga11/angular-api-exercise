@@ -1,7 +1,7 @@
 <div class="user-list-container">
-  <h1>Lista de usuarios</h1>
+  <h1>Users List</h1>
   <div class="search-container">
-    <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar usuarios..." /> <!-- Campo de entrada para buscar usuarios -->
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Search users..." /> 
   </div>
 
   <div *ngIf="errorMessage" class="alert alert-warning">
@@ -18,9 +18,9 @@
 
   <ul class="user-list" *ngIf="filteredUsers.length > 0">
     <li *ngFor="let user of filteredUsers" class="user-item">
-      <h2>{{ user.name }}</h2> <!-- Muestra el nombre del usuario -->
-      <p>Email: {{ user.email }}</p> <!-- Muestra el email del usuario -->
-      <p>Ciudad: {{ user.address.city }}</p> <!-- Muestra la ciudad del usuario -->
+      <h2>{{ user.name }}</h2>
+      <p>Email: {{ user.email }}</p>
+      <p>Ciudad: {{ user.address.city }}</p>
     </li>
   </ul>
 

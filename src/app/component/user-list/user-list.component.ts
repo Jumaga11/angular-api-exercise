@@ -1,27 +1,27 @@
-import { Component, OnInit } from '@angular/core'; // Importa Component y OnInit de Angular.
-import { UserService } from '../../service/user.service'; // Importa el servicio UserService.
-import { CommonModule } from '@angular/common'; // Importa CommonModule para directivas comunes.
-import { FormsModule } from '@angular/forms'; // Importa FormsModule para trabajar con formularios.
-import { User } from '../../models/user.model'; // Importa la interfaz User.
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../service/user.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { User } from '../../models/user.model';
 
 @Component({
-  selector: 'app-user-list', // Define el selector del componente.
-  standalone: true, // Indica que este componente es independiente.
-  imports: [CommonModule, FormsModule], // Importa módulos necesarios.
-  templateUrl: './user-list.component.html', // Ruta del archivo de plantilla HTML.
-  styleUrls: ['./user-list.component.css'] // Ruta del archivo de estilos CSS.
+  selector: 'app-user-list',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.css']
 })
+
 export class UserListComponent implements OnInit {
-  users: User[] = []; // Arreglo para almacenar los usuarios.
-  errorMessage: string = ''; // Mensaje de error.
+  users           : User[] = []; // Arreglo para almacenar los usuarios.
+  errorMessage    : string = ''; // Mensaje de error.
   httpErrorMessage: string = ''; // Mensaje de error HTTP.
-  searchTerm: string = ''; // Término de búsqueda.
+  searchTerm      : string = ''; // Término de búsqueda.
 
   constructor(private userService: UserService) {} // Inyecta UserService en el constructor.
 
   ngOnInit(): void {
-    // Método que se ejecuta al inicializar el componente.
-    this.loadUsers(); // Carga los usuarios.
+    this.loadUsers();
   }
 
   loadUsers(): void {
@@ -39,8 +39,7 @@ export class UserListComponent implements OnInit {
   get filteredUsers() {
     // Método para filtrar usuarios según el término de búsqueda.
     const filtered = this.users.filter((user) =>
-      user.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-      user.email.toLowerCase().includes(this.searchTerm.toLowerCase())
+      user.name.toLowerCase().includes(this.searchTerm.toLowerCase()) || user.email.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
 
     if (filtered.length === 0 && this.searchTerm.trim() !== '') {
@@ -48,7 +47,6 @@ export class UserListComponent implements OnInit {
     } else {
       this.errorMessage = ''; // Limpia el mensaje de error si hay coincidencias.
     }
-
     return filtered; // Retorna el arreglo filtrado.
   }
 
